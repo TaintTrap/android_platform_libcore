@@ -45,6 +45,7 @@ public final class Taint {
     public static final int TAINT_DEVICE_SN     = 0x00002000;
     public static final int TAINT_ACCOUNT       = 0x00004000;
     public static final int TAINT_HISTORY       = 0x00008000;
+    public static final int TAINT_PASSWORD      = 0x00010000;
     
     // how many bytes of tainted network output data to print to log?
     public static final int dataBytesToLog = 100;
