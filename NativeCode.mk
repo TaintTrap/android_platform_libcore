@@ -82,6 +82,8 @@ LOCAL_CPPFLAGS += $(core_cppflags)
 ifeq ($(TARGET_ARCH),arm)
 # Ignore "note: the mangling of 'va_list' has changed in GCC 4.4"
 LOCAL_CFLAGS += -Wno-psabi
+LOCAL_CFLAGS += -Wno-error=strict-aliasing
+LOCAL_ARM_MODE := arm
 endif
 
 # Define the rules.
