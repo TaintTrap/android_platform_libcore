@@ -22,6 +22,10 @@ import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.util.Arrays;
 
+// begin WITH_TAINT_TRACKING
+import dalvik.system.Taint;
+// end WITH_TAINT_TRACKING
+
 /**
  * Transforms a sequence of 16-bit Java characters to a byte sequence in some encoding.
  *
@@ -408,6 +412,13 @@ public abstract class CharsetEncoder {
         if ((status == FLUSH) || (!endOfInput && status == END)) {
             throw new IllegalStateException();
         }
+
+// begin WITH_TAINT_TRACKING
+            int srcTag = Taint.getTaintCharArray(in.array());
+            if (srcTag > 0) {
+                Taint.addTaintByteArray(out.array(), srcTag);
+            }
+// end WITH_TAINT_TRACKING
 
         CoderResult result;
         while (true) {
