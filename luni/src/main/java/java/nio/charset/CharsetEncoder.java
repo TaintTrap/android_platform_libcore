@@ -414,10 +414,12 @@ public abstract class CharsetEncoder {
         }
 
 // begin WITH_TAINT_TRACKING
+        if (in.hasArray()) {
             int srcTag = Taint.getTaintCharArray(in.array());
             if (srcTag > 0) {
                 Taint.addTaintByteArray(out.array(), srcTag);
             }
+        }
 // end WITH_TAINT_TRACKING
 
         CoderResult result;
