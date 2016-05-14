@@ -46,6 +46,7 @@ final class CharToByteBufferAdapter extends CharBuffer {
         this.byteBuffer = byteBuffer;
         this.byteBuffer.clear();
         this.effectiveDirectAddress = byteBuffer.effectiveDirectAddress;
+        this.block = byteBuffer.block;
     }
 
     @Override

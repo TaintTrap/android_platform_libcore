@@ -45,6 +45,7 @@ final class ShortToByteBufferAdapter extends ShortBuffer {
         this.byteBuffer = byteBuffer;
         this.byteBuffer.clear();
         this.effectiveDirectAddress = byteBuffer.effectiveDirectAddress;
+        this.block = byteBuffer.block;
     }
 
     @Override

@@ -46,6 +46,7 @@ final class DoubleToByteBufferAdapter extends DoubleBuffer {
         this.byteBuffer = byteBuffer;
         this.byteBuffer.clear();
         this.effectiveDirectAddress = byteBuffer.effectiveDirectAddress;
+        this.block = byteBuffer.block;
     }
 
     @Override

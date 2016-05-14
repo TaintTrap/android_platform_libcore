@@ -92,7 +92,7 @@ public abstract class Buffer {
     /**
      * For direct buffers, the underlying MemoryBlock; null otherwise.
      */
-    final MemoryBlock block;
+    MemoryBlock block;
 
     Buffer(int elementSizeShift, int capacity, MemoryBlock block) {
         this._elementSizeShift = elementSizeShift;
